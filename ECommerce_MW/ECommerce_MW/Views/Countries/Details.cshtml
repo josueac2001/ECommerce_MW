@@ -45,25 +45,25 @@
                     <tbody>
                         @foreach (var item in Model.States)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CitiesNumber)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ModifiedDate)
-                                </td>
-                                <td>
-                                    <a asp-action="EditState" asp-route-stateId="@item.Id" class="btn btn-outline-warning">Editar</a>
-                                    <a asp-action="DetailsState" asp-route-stateId="@item.Id" class="btn btn-outline-info">Detalles</a>
-                                    <a asp-action="DeleteState" asp-route-stateId="@item.Id" class="btn btn-outline-danger">Eliminar</a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CitiesNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedDate)
+                            </td>
+                            <td>
+                                <a asp-action="EditState" asp-route-stateId="@item.Id" class="btn btn-outline-warning">Editar</a>
+                                <a asp-action="DetailsState" asp-route-stateId="@item.Id" class="btn btn-outline-info">Detalles</a>
+                                <a asp-action="DeleteState" asp-route-stateId="@item.Id" class="btn btn-outline-danger">Eliminar</a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
@@ -91,4 +91,4 @@
             });
         });
     </script>
-    }
+}

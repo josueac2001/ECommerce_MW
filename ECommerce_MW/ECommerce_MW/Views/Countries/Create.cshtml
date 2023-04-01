@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Crear País</h1>
+<h1>Crear país</h1>
 
 <h4>País</h4>
 <hr />
@@ -12,7 +12,9 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <partial name="../shared/PartialViews/_Country.cshtml" />
+
+            <partial name="../Shared/PartialViews/_CountryCreateEdit.cshtml" />
+
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-outline-primary" />
                 <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
@@ -20,7 +22,6 @@
         </form>
     </div>
 </div>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

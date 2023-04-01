@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Countries\AddState.cshtml" />
+    <None Include="Views\Countries\Create.cshtml" />
+    <None Include="Views\Countries\Delete.cshtml" />
+    <None Include="Views\Countries\DeleteState.cshtml" />
+    <None Include="Views\Countries\Details.cshtml" />
+    <None Include="Views\Countries\DetailsState.cshtml" />
+    <None Include="Views\Countries\Edit.cshtml" />
+    <None Include="Views\Countries\EditState.cshtml" />
+    <None Include="Views\Countries\Index.cshtml" />
+    <None Include="Views\Shared\PartialViews\_StateDetailsDelete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />

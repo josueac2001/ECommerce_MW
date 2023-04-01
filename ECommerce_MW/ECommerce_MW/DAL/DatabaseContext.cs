@@ -5,10 +5,10 @@ namespace ECommerce_MW.DAL
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> options ): base(options) //PERMITE UNA CONEXION A LA BASE DE DATOS
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
-        }  
+        }
 
         public DbSet<Country> Countries { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -20,8 +20,8 @@ namespace ECommerce_MW.DAL
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
-            modelBuilder.Entity<State>().HasIndex("Name", "CountryId").IsUnique(); //indices compuestos
-            modelBuilder.Entity<City>().HasIndex("Name", "StateId").IsUnique();  //indices compuestos
+            modelBuilder.Entity<State>().HasIndex("Name", "CountryId").IsUnique(); // índices compuestos
+            modelBuilder.Entity<City>().HasIndex("Name", "StateId").IsUnique(); // índices compuestos
         }
     }
 }

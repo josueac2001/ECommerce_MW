@@ -4,8 +4,6 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
-
 <h4>País</h4>
 <hr />
 <div class="row">
@@ -14,7 +12,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedDate" />
-            <partial name="../shared/PartialViews/_Country.cshtml" />
+            <partial name="../Shared/PartialViews/_CountryCreateEdit.cshtml" />
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-outline-primary" />
                 <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
