@@ -1,21 +1,29 @@
 ﻿using ECommerce_MW.DAL.Entities;
+using ECommerce_MW.Enums;
+using ECommerce_MW.Helpers;
 
 namespace ECommerce_MW.DAL
 {
     public class SeederDb
     {
         private readonly DatabaseContext _context;
+        private readonly IUserHelper _userHelper;
 
-        public SeederDb(DatabaseContext context)
+        public SeederDb(DatabaseContext context, IUserHelper userHelper)
         {
             _context = context;
+            _userHelper = userHelper;
         }
 
         public async Task SeederAsync()
         {
+            var email = "docente_carlos@yopmail.com";
+
             await _context.Database.EnsureCreatedAsync(); // me reemplaza el comando update-database
             await PopulateCategoriesAsync();
             await PopulateCountriesAsync();
+            await PopulateRolesAsync();
+            await PopulateUserAsync(email);
 
             await _context.SaveChangesAsync();
         }
@@ -24,7 +32,7 @@ namespace ECommerce_MW.DAL
         {
             if (!_context.Categories.Any())
             {
-                _context.Categories.Add(new Category { Name = "Tecnología", Description = "Elementos tech", CreatedDate = DateTime.Now });
+                _context.Categories.Add(new Category { Name = "Tecnología", Description = "Elementos tech" , CreatedDate = DateTime.Now });
                 _context.Categories.Add(new Category { Name = "Implementos de Aseo", Description = "Detergente, jabón, etc.", CreatedDate = DateTime.Now });
                 _context.Categories.Add(new Category { Name = "Ropa interior", Description = "Tanguitas, narizonas", CreatedDate = DateTime.Now });
                 _context.Categories.Add(new Category { Name = "Gamers", Description = "PS5, XBOX SERIES", CreatedDate = DateTime.Now });
@@ -94,7 +102,6 @@ namespace ECommerce_MW.DAL
 
                         new State
                         {
-                            CreatedDate = DateTime.Now,
                             Name = "La Pampa",
                             Cities = new List<City>()
                             {
@@ -106,6 +113,38 @@ namespace ECommerce_MW.DAL
                         }
                     }
                 });
+            }
+        }
+
+        private async Task PopulateRolesAsync()
+        {
+            await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
+            await _userHelper.CheckRoleAsync(UserType.User.ToString());
+        }
+
+        private async Task PopulateUserAsync(string email)
+        {
+            User user = await _userHelper.GetUserAsync(email);
+
+            if (user == null)
+            {
+                user = new User
+                {
+                    CreatedDate = DateTime.Now,
+                    FirstName = "Docente Carlos",
+                    LastName = "Diaz",
+                    Email = email,
+                    UserName = email,
+                    PhoneNumber = "3002002002",
+                    Address = "Street Fighter",
+                    Document = "102030",
+                    City = _context.Cities.FirstOrDefault(),
+                    UserType = UserType.Admin,
+                };
+
+                await _userHelper.AddUserAsync(user, "123456");
+                //await _userHelper.AddUserToRoleAsync(user, user.UserType.ToString());
+                await _userHelper.AddUserToRoleAsync(user, UserType.Admin.ToString());
             }
         }
     }

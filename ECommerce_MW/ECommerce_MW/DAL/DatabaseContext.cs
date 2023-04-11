@@ -1,14 +1,15 @@
 ﻿using ECommerce_MW.DAL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce_MW.DAL
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<User>
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
-        {
+        { 
 
-        }
+        } 
 
         public DbSet<Country> Countries { get; set; }
         public DbSet<Category> Categories { get; set; }

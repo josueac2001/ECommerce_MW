@@ -1,19 +1,16 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ECommerce_MW.DAL.Entities
 {
-    public class Category: Entity
+    public class Category : Entity
     {
-        #region Properties
         [Display(Name = "Categoría")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe ser de {1} caracteres.")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public String Name { get; set; }
+        [Required(ErrorMessage = "El campo {0} es oblilgatorio.")]
+        public string Name { get; set; }
+
         [Display(Name = "Descripción")]
         [MaxLength(500, ErrorMessage = "El campo {0} debe ser de {1} caracteres.")]
-        public String? Description { get; set; }
-        #endregion
-
+        public string? Description { get; set; }
     }
 }

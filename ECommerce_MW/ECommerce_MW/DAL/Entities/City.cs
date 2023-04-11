@@ -4,14 +4,14 @@ namespace ECommerce_MW.DAL.Entities
 {
     public class City : Entity
     {
-        #region Properties
         [Display(Name = "Ciudad")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe ser de {1} caracteres.")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio.")]
-        public String Name { get; set; }
+        [Required(ErrorMessage = "El campo {0} es oblilgatorio.")]
+        public string Name { get; set; }
+
         [Display(Name = "Estado")]
         public State State { get; set; }
-        #endregion
 
+        public ICollection<User> Users { get; set; }
     }
 }
