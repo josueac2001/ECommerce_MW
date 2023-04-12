@@ -1,23 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="Views\Countries\AddState.cshtml" />
-    <None Include="Views\Countries\Create.cshtml" />
-    <None Include="Views\Countries\Delete.cshtml" />
-    <None Include="Views\Countries\DeleteState.cshtml" />
-    <None Include="Views\Countries\Details.cshtml" />
-    <None Include="Views\Countries\DetailsState.cshtml" />
-    <None Include="Views\Countries\Edit.cshtml" />
-    <None Include="Views\Countries\EditState.cshtml" />
-    <None Include="Views\Countries\Index.cshtml" />
-    <None Include="Views\Shared\PartialViews\_StateDetailsDelete.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />

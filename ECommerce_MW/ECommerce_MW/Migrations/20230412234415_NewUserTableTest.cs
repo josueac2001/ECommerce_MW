@@ -5,7 +5,7 @@
 namespace ECommerce_MW.Migrations
 {
     /// <inheritdoc />
-    public partial class StateAndCityTables : Migration
+    public partial class NewUserTableTest : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

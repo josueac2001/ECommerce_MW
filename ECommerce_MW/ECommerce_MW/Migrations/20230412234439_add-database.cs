@@ -5,7 +5,7 @@
 namespace ECommerce_MW.Migrations
 {
     /// <inheritdoc />
-    public partial class NewUsersTable : Migration
+    public partial class adddatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce_MW.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230331231721_NewDescriptionPropCategoryTbl")]
+    [Migration("20230329233444_NewDescriptionPropCategoryTbl")]
     partial class NewDescriptionPropCategoryTbl
     {
         /// <inheritdoc />

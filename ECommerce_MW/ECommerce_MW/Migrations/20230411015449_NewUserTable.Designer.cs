@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce_MW.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230411224447_NewUserTables")]
-    partial class NewUserTables
+    [Migration("20230411015449_NewUserTable")]
+    partial class NewUserTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

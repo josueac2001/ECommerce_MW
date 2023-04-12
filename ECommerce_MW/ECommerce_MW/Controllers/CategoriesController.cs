@@ -5,44 +5,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce_MW.Controllers
 {
-    public class CategoriesController: Controller
+    public class CategoriesController : Controller
     {
         private readonly DatabaseContext _context;
+
         public CategoriesController(DatabaseContext context)
         {
             _context = context;
         }
+
         // GET: Categories
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
         }
 
-        // GET: Categories/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null || _context.Categories == null)
-            {
-                return NotFound();
-            }
-
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
-        }
-
-        // GET: Categories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Category category)
@@ -55,7 +37,6 @@ namespace ECommerce_MW.Controllers
                     _context.Add(category);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
-
                 }
                 catch (DbUpdateException dbUpdateException)
                 {
@@ -79,16 +60,10 @@ namespace ECommerce_MW.Controllers
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Categories == null)
-            {
-                return NotFound();
-            }
+            if (id == null || _context.Categories == null) return NotFound();
 
             Category category = await _context.Categories.FindAsync(id);
-            if (category == null)
-            {
-                return NotFound();
-            }
+            if (category == null) return NotFound();
             return View(category);
         }
 
@@ -130,6 +105,23 @@ namespace ECommerce_MW.Controllers
             return View(category);
         }
 
+        // GET: Categories/Details/5
+        public async Task<IActionResult> Details(Guid? id)
+        {
+            if (id == null || _context.Categories == null)
+            {
+                return NotFound();
+            }
+
+            Category category = await _context.Categories.FirstOrDefaultAsync(m => m.Id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
         // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -165,6 +157,5 @@ namespace ECommerce_MW.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
     }
 }

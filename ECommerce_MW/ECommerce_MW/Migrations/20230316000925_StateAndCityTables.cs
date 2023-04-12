@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce_MW.Migrations
 {
     /// <inheritdoc />
-    public partial class CityAndStateTablesCreated : Migration
+    public partial class StateAndCityTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

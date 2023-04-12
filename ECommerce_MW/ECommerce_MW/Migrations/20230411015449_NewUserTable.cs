@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ECommerce_MW.Migrations
 {
     /// <inheritdoc />
-    public partial class NewUserTables : Migration
+    public partial class NewUserTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

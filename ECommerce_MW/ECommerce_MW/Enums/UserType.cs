@@ -2,7 +2,6 @@
 {
     public enum UserType
     {
-        //Empieza desde cero
         Admin,
         User
     }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce_MW.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230316001247_CityAndStateTablesCreated")]
-    partial class CityAndStateTablesCreated
+    [Migration("20230316000925_StateAndCityTables")]
+    partial class StateAndCityTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
