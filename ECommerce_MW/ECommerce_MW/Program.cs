@@ -27,11 +27,18 @@ builder.Services.AddIdentity<User, IdentityRole>(io =>
 
 }).AddEntityFrameworkStores<DatabaseContext>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Unauthorized";
+    options.AccessDeniedPath = "/Account/Unauthorized";
+});
+
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddTransient<SeederDb>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
+builder.Services.AddScoped<IDropDownListsHelper, DropDownListsHelper>();
 
 var app = builder.Build();
 
@@ -58,10 +65,11 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+app.UseStatusCodePagesWithReExecute("/error/{0}");
 
-app.UseAuthorization();
+app.UseRouting();
 app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

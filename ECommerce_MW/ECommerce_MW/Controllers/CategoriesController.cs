@@ -1,10 +1,12 @@
 ﻿using ECommerce_MW.DAL;
 using ECommerce_MW.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce_MW.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly DatabaseContext _context;
@@ -20,6 +22,7 @@ namespace ECommerce_MW.Controllers
             return View(await _context.Categories.ToListAsync());
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();

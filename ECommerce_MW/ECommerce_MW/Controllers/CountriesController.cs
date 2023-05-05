@@ -1,11 +1,14 @@
 ﻿using ECommerce_MW.DAL;
 using ECommerce_MW.DAL.Entities;
 using ECommerce_MW.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ECommerce_MW.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountriesController : Controller
     {
         #region Constructor
